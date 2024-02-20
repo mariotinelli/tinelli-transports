@@ -2,6 +2,7 @@
 <html
     lang="{{ str_replace('_', '-', app()->getLocale()) }}"
     x-data="{ darkMode: false }"
+    @toggle-theme.window="darkMode = $event.detail"
     x-cloak
     x-bind:class="{'dark' : darkMode === true}"
     x-init="

@@ -37,21 +37,17 @@
          x-transition:leave-end="opacity-0 scale-95"
          class="absolute z-50 mt-2 {{ $width }} rounded-md shadow-lg {{ $alignmentClasses }}"
          style="display: none;"
-         @click="open = false"
+        {{--         @click="open = false"--}}
     >
 
         <div class="rounded-md ring-1 ring-black ring-opacity-5 {{ $contentClasses }}" >
 
-            <div
-                class="flex items-center p-3 gap-2 text-sm text-gray-500"
-            >
-                <x-theme-toggle />
-                Dark Mode
-            </div >
+            <x-theme-toggle />
 
             <hr />
 
             {{ $content }}
+
         </div >
     </div >
 </div >
