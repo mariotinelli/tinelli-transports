@@ -1,7 +1,7 @@
-<div class="flex justify-between items-center py-8 px-64 bg-gradient-to-r from-[#7DB563] to-[#02A6A5] text-white font-medium" >
+<div class="flex justify-center gap-8 items-center py-8 bg-gradient-to-r from-[#7DB563cc] to-[#02A6A5cc] text-white font-medium" >
 
     <img
-        class="h-32 w-auto"
+        class="h-36 w-auto -mb-4"
         src="{{ asset('assets/images/logo-contorno-512x512.png') }}"
         alt="Logo"
     />

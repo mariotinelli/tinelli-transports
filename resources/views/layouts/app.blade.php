@@ -43,19 +43,27 @@
 >
 
 <div
-    class="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col justify-between"
+    x-data="{ activeSection: null }"
+    x-init="
+        activeSection = decodeURIComponent(window.location.hash.substring(1));
+        $refs[activeSection].scrollIntoView({ top: $refs.resources.scrollHeight, behavior: 'smooth' });
+    "
+    class="h-screen max-h-screen overflow-hidden bg-white dark:bg-gray-900 flex flex-col justify-between"
 >
 
     <!-- Home - Navbar -->
     <x-home.navigation />
 
     <!-- Page Content -->
-    <main class="pt-[6rem] px-16" >
-        {{ $slot }}
+    <main class="mt-[80px] overflow-y-auto max-h-[calc(100%-80px)]" >
+        <div class="px-3 md:px-8 lg:px-16 py-6" >
+            {{ $slot }}
+        </div >
+
+        <!-- Footer -->
+        <x-home.footer />
     </main >
 
-    <!-- Footer -->
-    <x-home.footer />
 
 </div >
 
