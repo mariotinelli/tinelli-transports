@@ -28,7 +28,7 @@
         </div >
 
         <!-- Mobile Sidebar Items -->
-        <div class="flex flex-col justify-center gap-5 p-3" >
+        <div class="flex flex-col justify-center gap-3 p-3" >
 
             <!-- Mobile Sidebar Toggle Theme Item -->
             <x-theme-toggle />
@@ -78,10 +78,12 @@
 
             <!-- Mobile Sidebar Ref Items -->
             <div
-                class="hidden sm:flex items-center justify-center gap-2 md:gap-5 text-sm lg:text-lg text-gray-900 dark:text-zinc-200"
+                class="w-full flex flex-col sm:hidden items-center justify-center gap-3 text-sm lg:text-lg text-gray-900 dark:text-zinc-200"
             >
 
                 @foreach($sections as $section)
+
+                    <hr class="w-full" />
 
                     <x-home.navigation.mobile-menu.ref-item
                         :ref="$section['ref']"
