@@ -6,8 +6,8 @@
 
         <x-slot name="trigger" >
 
-            <div class="relative w-12 h-12 overflow-hidden bg-gray-100 dark:bg-gray-600 rounded-full border transition ease-in-out duration-150 hover:cursor-pointer" >
-                <svg class="absolute w-14 h-14 text-gray-400 -left-1"
+            <div class="relative w-10 h-10 overflow-hidden bg-gray-100 dark:bg-gray-600 rounded-full border transition ease-in-out duration-150 hover:cursor-pointer" >
+                <svg class="absolute w-12 h-12 text-gray-400 -left-1"
                      fill="currentColor"
                      viewBox="0 0 20 20"
                      xmlns="http://www.w3.org/2000/svg" >
@@ -22,21 +22,37 @@
 
         <x-slot name="content" >
 
-            <x-dropdown-link :href="route('profile.edit')" >
-                {{ __('Profile') }}
-            </x-dropdown-link >
-
-            <!-- Authentication -->
-            <form method="POST"
-                  action="{{ route('logout') }}" >
-                @csrf
-
-                <x-dropdown-link :href="route('logout')"
-                                 onclick="event.preventDefault();
-                                                this.closest('form').submit();" >
-                    {{ __('Log Out') }}
+            @auth
+                <x-dropdown-link :href="route('profile.edit')" >
+                    {{ __('Profile') }}
                 </x-dropdown-link >
-            </form >
+
+                <!-- Authentication -->
+                <form
+                    method="POST"
+                    action="{{ route('logout') }}"
+                >
+                    @csrf
+
+                    <x-dropdown-link :href="route('logout')"
+                                     onclick="event.preventDefault();
+                                                    this.closest('form').submit();" >
+                        {{ __('Log Out') }}
+                    </x-dropdown-link >
+                </form >
+
+            @else
+
+                <x-dropdown-link :href="route('profile.edit')" >
+                    {{ __('Login') }}
+                </x-dropdown-link >
+
+                <x-dropdown-link :href="route('profile.edit')" >
+                    {{ __('Cadastrar') }}
+                </x-dropdown-link >
+
+            @endauth
+
 
         </x-slot >
 

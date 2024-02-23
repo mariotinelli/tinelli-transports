@@ -1,17 +1,34 @@
 <div
-    class="flex flex-col"
+    x-data="{ activeSection: null }"
+    x-init="
+        activeSection = decodeURIComponent(window.location.hash.substring(1));
+        $refs[activeSection].scrollIntoView({ top: $refs.resources.scrollHeight, behavior: 'smooth' });
+    "
+    class="h-screen max-h-screen overflow-hidden bg-white dark:bg-gray-900 flex flex-col justify-between"
 >
 
-    <x-home.sections.resources />
+    <!-- Home - Navbar -->
+    <x-home.navigation
+        :sections="$sections"
+    />
 
-    <x-home.sections.benefits />
+    <!-- Page Content -->
+    <main class="mt-[80px] overflow-y-auto max-h-[calc(100%-80px)]" >
 
-    <x-home.sections.who-we-are />
+        <div class="px-3 md:px-8 lg:px-16 py-6" >
 
-    <x-home.sections.about />
+            @foreach($sections as $section)
 
-    <x-home.sections.newsletter />
+                <x-dynamic-component
+                    :component="'home.sections.'.$section['ref']"
+                />
 
-    <x-home.sections.contact />
+            @endforeach
+
+        </div >
+
+        <!-- Footer -->
+        <x-home.footer />
+    </main >
 
 </div >
