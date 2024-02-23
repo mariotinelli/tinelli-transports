@@ -9,7 +9,7 @@
     </h2 >
 
 
-    <div class="flex justify-center items-center gap-4" >
+    <div class="flex flex-wrap items-center justify-center gap-4" >
 
         <x-home.sections.benefits.card
             title="Eficiência Operacional"
