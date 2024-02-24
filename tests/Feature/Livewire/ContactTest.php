@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Livewire;
 
-use App\Livewire\{Contact, Home, Newsletter};
+use App\Livewire\{Contact, Home};
 use App\Mail\ContactMessage;
 use Filament\Notifications\Notification;
 use Mail;
@@ -128,14 +128,14 @@ test('field email must be a valid email address', function () {
 
 });
 
-todo('field email cannot has more than 255 characters', function () {
+test('field email cannot has more than 255 characters', function () {
 
     // Act
-    $lw = livewire(Newsletter::class)
+    $lw = livewire(Contact::class)
         ->fillForm([
             'email' => str_repeat('a', 256) . fake()->email,
         ])
-        ->call('subscribe');
+        ->call('send');
 
     // Assert
     $lw->assertHasErrors(['data.email' => 'max'])
