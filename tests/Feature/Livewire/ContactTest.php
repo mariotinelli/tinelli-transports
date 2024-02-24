@@ -4,7 +4,6 @@ namespace Tests\Feature\Livewire;
 
 use App\Livewire\{Contact, Home, Newsletter};
 use App\Mail\ContactMessage;
-use App\Models\Newsletter as NewsletterModel;
 use Filament\Notifications\Notification;
 use Mail;
 
@@ -68,34 +67,14 @@ it('can send email for contact', function () {
 
 });
 
-todo('can subscribe only one time', function () {
-
-    // Arrange
-    $newsletter = NewsletterModel::factory()->create();
+test('field name is required', function () {
 
     // Act
-    $lw = livewire(Newsletter::class)
-        ->fillForm([
-            'name'  => $newsletter->name,
-            'email' => $newsletter->email,
-        ])
-        ->call('subscribe');
-
-    // Assert
-    $lw
-        ->assertHasErrors(['data.email' => 'unique'])
-        ->assertSeeHtml(__('validation.unique', ['attribute' => 'e-mail']));
-
-});
-
-todo('field name is required', function () {
-
-    // Act
-    $lw = livewire(Newsletter::class)
+    $lw = livewire(Contact::class)
         ->fillForm([
             'name' => null,
         ])
-        ->call('subscribe');
+        ->call('send');
 
     // Assert
     $lw
