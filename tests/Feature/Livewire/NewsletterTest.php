@@ -73,7 +73,7 @@ todo('field name is required', function () {
 
     // Assert
     $lw
-        ->assertHasErrors(['name' => 'required'])
+        ->assertHasErrors(['data.name' => 'required'])
         ->assertSeeHtml(__('validation.required', ['attribute' => 'name']));
 
 });
