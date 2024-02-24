@@ -158,3 +158,18 @@ test('field subject is required', function () {
         ->assertSeeHtml(__('validation.required', ['attribute' => 'assunto']));
 
 });
+
+test('field subject cannot has more than 255 characters', function () {
+
+    // Act
+    $lw = livewire(Contact::class)
+        ->fillForm([
+            'subject' => str_repeat('a', 256),
+        ])
+        ->call('send');
+
+    // Assert
+    $lw->assertHasErrors(['data.subject' => 'max'])
+        ->assertSeeHtml(__('validation.max.string', ['attribute' => 'assunto', 'max' => 255]));
+
+});
