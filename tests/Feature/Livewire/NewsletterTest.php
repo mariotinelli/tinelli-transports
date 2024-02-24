@@ -123,17 +123,17 @@ test('field email must be a valid email address', function () {
 
 });
 
-todo('field email cannot has more than 255 characters', function () {
+test('field email cannot has more than 255 characters', function () {
 
     // Act
     $lw = livewire(Newsletter::class)
         ->fillForm([
-            'email' => str_repeat('a', 256),
+            'email' => str_repeat('a', 256) . fake()->email,
         ])
         ->call('subscribe');
 
     // Assert
-    $lw->assertHasErrors(['email' => 'max'])
-        ->assertSeeHtml(__('validation.max.string', ['attribute' => 'email', 'max' => 255]));
+    $lw->assertHasErrors(['data.email' => 'max'])
+        ->assertSeeHtml(__('validation.max.string', ['attribute' => 'e-mail', 'max' => 255]));
 
 });
