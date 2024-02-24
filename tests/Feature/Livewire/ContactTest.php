@@ -83,14 +83,14 @@ test('field name is required', function () {
 
 });
 
-todo('field name cannot has more than 255 characters', function () {
+test('field name cannot has more than 255 characters', function () {
 
     // Act
-    $lw = livewire(Newsletter::class)
+    $lw = livewire(Contact::class)
         ->fillForm([
             'name' => str_repeat('a', 256),
         ])
-        ->call('subscribe');
+        ->call('send');
 
     // Assert
     $lw->assertHasErrors(['data.name' => 'max'])
