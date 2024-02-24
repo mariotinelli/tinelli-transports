@@ -46,6 +46,7 @@ class Newsletter extends Component implements HasForms
                 ->label('E-mail')
                 ->placeholder('Seu e-mail')
                 ->email()
+                ->unique('newsletters', 'email')
                 ->maxLength(255)
                 ->required(),
 

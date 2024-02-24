@@ -62,6 +62,26 @@ it('can subscribes to the newsletter', function () {
 
 });
 
+it('can subscribe only one time', function () {
+
+    // Arrange
+    $newsletter = NewsletterModel::factory()->create();
+
+    // Act
+    $lw = livewire(Newsletter::class)
+        ->fillForm([
+            'name'  => $newsletter->name,
+            'email' => $newsletter->email,
+        ])
+        ->call('subscribe');
+
+    // Assert
+    $lw
+        ->assertHasErrors(['data.email' => 'unique'])
+        ->assertSeeHtml(__('validation.unique', ['attribute' => 'e-mail']));
+
+});
+
 test('field name is required', function () {
 
     // Act
