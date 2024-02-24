@@ -93,7 +93,7 @@ test('field name cannot has more than 255 characters', function () {
 
 });
 
-todo('field email is required', function () {
+test('field email is required', function () {
 
     // Act
     $lw = livewire(Newsletter::class)
@@ -103,8 +103,8 @@ todo('field email is required', function () {
         ->call('subscribe');
 
     // Assert
-    $lw->assertHasErrors(['email' => 'required'])
-        ->assertSeeHtml(__('validation.required', ['attribute' => 'email']));
+    $lw->assertHasErrors(['data.email' => 'required'])
+        ->assertSeeHtml(__('validation.required', ['attribute' => 'e-mail']));
 
 });
 
