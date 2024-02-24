@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 use App\Mail\SubscribedNewsletter;
 use App\Models\Newsletter as NewsletterModel;
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\{Grid, TextInput};
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
@@ -36,19 +36,28 @@ class Newsletter extends Component implements HasForms
     {
         return $form->schema([
 
-            TextInput::make('name')
-                ->label('Nome')
-                ->placeholder('Seu nome')
-                ->maxLength(255)
-                ->required(),
+            Grid::make()
+                ->columns([
+                    'default' => 1,
+                    'lg'      => 2,
+                ])
+                ->schema([
 
-            TextInput::make('email')
-                ->label('E-mail')
-                ->placeholder('Seu e-mail')
-                ->email()
-                ->unique('newsletters', 'email')
-                ->maxLength(255)
-                ->required(),
+                    TextInput::make('name')
+                        ->label('Nome')
+                        ->placeholder('Seu nome')
+                        ->maxLength(255)
+                        ->required(),
+
+                    TextInput::make('email')
+                        ->label('E-mail')
+                        ->placeholder('Seu e-mail')
+                        ->email()
+                        ->unique('newsletters', 'email')
+                        ->maxLength(255)
+                        ->required(),
+
+                ]),
 
         ])->statePath('data');
     }

@@ -12,7 +12,7 @@
 
     <div
         x-show="open"
-        class="absolute h-screen bg-white dark:bg-gray-900 top-0 left-0 w-full text-gray-900 dark:text-zinc-200"
+        class="absolute z-50 h-screen bg-white dark:bg-gray-900 top-0 left-0 w-full text-gray-900 dark:text-zinc-200"
     >
 
         <!-- Mobile Sidebar Header -->
