@@ -62,7 +62,7 @@ it('can subscribes to the newsletter', function () {
 
 });
 
-todo('field name is required', function () {
+test('field name is required', function () {
 
     // Act
     $lw = livewire(Newsletter::class)
@@ -74,7 +74,7 @@ todo('field name is required', function () {
     // Assert
     $lw
         ->assertHasErrors(['data.name' => 'required'])
-        ->assertSeeHtml(__('validation.required', ['attribute' => 'name']));
+        ->assertSeeHtml(__('validation.required', ['attribute' => 'nome']));
 
 });
 
