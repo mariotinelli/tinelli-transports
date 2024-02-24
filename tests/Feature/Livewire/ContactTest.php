@@ -113,14 +113,14 @@ test('field email is required', function () {
 
 });
 
-todo('field email must be a valid email address', function () {
+test('field email must be a valid email address', function () {
 
     // Act
-    $lw = livewire(Newsletter::class)
+    $lw = livewire(Contact::class)
         ->fillForm([
             'email' => 'invalid-email',
         ])
-        ->call('subscribe');
+        ->call('send');
 
     // Assert
     $lw->assertHasErrors(['data.email' => 'email'])
