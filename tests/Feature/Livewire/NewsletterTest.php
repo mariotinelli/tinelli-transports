@@ -78,7 +78,7 @@ test('field name is required', function () {
 
 });
 
-todo('field name cannot has more than 255 characters', function () {
+test('field name cannot has more than 255 characters', function () {
 
     // Act
     $lw = livewire(Newsletter::class)
@@ -88,8 +88,8 @@ todo('field name cannot has more than 255 characters', function () {
         ->call('subscribe');
 
     // Assert
-    $lw->assertHasErrors(['name' => 'max'])
-        ->assertSeeHtml(__('validation.max.string', ['attribute' => 'name', 'max' => 255]));
+    $lw->assertHasErrors(['data.name' => 'max'])
+        ->assertSeeHtml(__('validation.max.string', ['attribute' => 'nome', 'max' => 255]));
 
 });
 
