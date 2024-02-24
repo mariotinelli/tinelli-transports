@@ -26,6 +26,7 @@ class Home extends Component
             ['ref' => 'benefits', 'text' => 'Benefícios'],
             ['ref' => 'about', 'text' => 'Sobre'],
             ['ref' => 'who-we-are', 'text' => 'Quem somos'],
+            ['ref' => 'newsletter', 'text' => 'Newsletter'],
             ['ref' => 'contact', 'text' => 'Contato'],
         ];
     }

@@ -22,6 +22,12 @@
 
     <title >{{ config('app.name', 'Laravel') }}</title >
 
+    <style >
+        [x-cloak] {
+            display: none !important;
+        }
+    </style >
+
     <link rel="icon"
           type="image/x-icon"
           href="{{ asset('assets/images/favicons/favicon-32x32.png') }}" >
@@ -32,16 +38,17 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap"
           rel="stylesheet" />
 
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
     <!-- Livewire -->
     @livewireStyles
+    @filamentStyles
+    @vite('resources/css/app.css')
 </head >
 
 <body
     class="antialiased"
 >
+
+@livewire('notifications')
 
 <main >
     <livewire:home />
@@ -49,6 +56,9 @@
 
 <!-- Livewire -->
 @livewireScripts
+
+@filamentScripts
+@vite('resources/js/app.js')
 
 </body >
 
