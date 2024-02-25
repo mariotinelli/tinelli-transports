@@ -50,9 +50,7 @@
 
 @livewire('notifications')
 
-<main >
-    <livewire:home />
-</main >
+<livewire:home />
 
 <!-- Livewire -->
 @livewireScripts

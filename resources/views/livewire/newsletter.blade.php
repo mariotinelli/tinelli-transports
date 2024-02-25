@@ -1,4 +1,4 @@
-<div class="w-full max-w-[70rem] border rounded-2xl p-16 shadow-sm" >
+<div class="w-full max-w-[70rem] border border-gray-300 rounded-2xl p-16 shadow-sm dark:bg-gray-800" >
 
     <h1
         class="text-4xl text-center text-gray-900 dark:text-zinc-200 mb-16"

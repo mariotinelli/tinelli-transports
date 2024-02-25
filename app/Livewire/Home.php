@@ -22,12 +22,12 @@ class Home extends Component
     public function loadMenus(): void
     {
         $this->sections = [
-            ['ref' => 'resources', 'text' => 'Recursos'],
-            ['ref' => 'benefits', 'text' => 'Benefícios'],
-            ['ref' => 'about', 'text' => 'Sobre'],
-            ['ref' => 'who-we-are', 'text' => 'Quem somos'],
-            ['ref' => 'newsletter', 'text' => 'Newsletter'],
-            ['ref' => 'contact', 'text' => 'Contato'],
+            ['component' => 'principal', 'ref' => 'principal', 'text' => 'Início'],
+            ['component' => 'resources', 'ref' => 'resources', 'text' => 'Recursos'],
+            ['component' => 'benefits', 'ref' => 'benefits', 'text' => 'Benefícios'],
+            ['component' => 'who-we-are', 'ref' => 'whoWeAre', 'text' => 'Quem somos'],
+            ['component' => 'newsletter', 'ref' => 'newsletter', 'text' => 'Newsletter'],
+            ['component' => 'contact', 'ref' => 'contact', 'text' => 'Contato'],
         ];
     }
 }
